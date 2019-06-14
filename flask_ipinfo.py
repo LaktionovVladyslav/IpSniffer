@@ -57,25 +57,25 @@ class IPInfo(object):
         """获得访客操作系统."""
         ua = request.headers.get('User-Agent')
         if (ua):
-            if (re.compile(r'win', re.I).search(ua)):
+            if re.compile(r'win', re.I).search(ua):
                 os = 'Windows'
             elif (re.compile(r'iphone', re.I).search(ua)):
                 os = 'iPhone'
-            elif (re.compile(r'mac', re.I).search(ua)):
+            elif re.compile(r'mac', re.I).search(ua):
                 os = 'MAC'
-            elif (re.compile(r'android', re.I).search(ua)):
+            elif re.compile(r'android', re.I).search(ua):
                 os = 'Android'
-            elif (re.compile(r'linux', re.I).search(ua)):
+            elif re.compile(r'linux', re.I).search(ua):
                 os = 'Linux'
-            elif (re.compile(r'unix', re.I).search(ua)):
+            elif re.compile(r'unix', re.I).search(ua):
                 os = 'Unix'
-            elif (re.compile(r'bsd', re.I).search(ua)):
+            elif re.compile(r'bsd', re.I).search(ua):
                 os = 'BSD'
             else:
                 os = 'Other'
             return(os)
         else:
-            return('Unknown')
+            return 'Unknown'
 
     @property
     def ipaddress(self):
@@ -87,7 +87,7 @@ class IPInfo(object):
         if (ip):
             return(ip)
         else:
-            return('Unknown')
+            return 'Unknown'
 
     @property
     def get_info(self):
