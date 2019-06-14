@@ -12,7 +12,7 @@ def send_to_channel(text: str = None):
     :type text: str
     """
     data = {
-        "chat_id": "@dsf",
+        "chat_id": "@dssdfkdsafkadsk",
         "text": text
     }
     url = "https://api.telegram.org/bot598340268:AAG5LAPOcWOqEUXcSPjfXBJ4CXDY0hHDR3Y/sendMessage?"
