@@ -15,7 +15,7 @@ def send_to_channel(text: str = None):
         "chat_id": "@dssdfkdsafkadsk",
         "text": text
     }
-    url = "https://api.telegram.org/bot598340268:AAG5LAPOcWOqEUXcSPjfXBJ4CXDY0hHDR3Y/sendMessage?"
+    url = "https://api.telegram.org/bot752649013:AAFKs7z5XqurSyjQ-kHblBqdKiVQEXG4yww/sendMessage?"
     requests.get(url=url, params=data)
     return True
 
