@@ -1,10 +1,9 @@
 import re
-import urllib
-import json
+
 from flask import request
 import requests
 
-__version__  = '0.0.10'
+__version__ = '0.0.10'
 __author__ = "borisliu"
 
 
@@ -15,42 +14,42 @@ class IPInfo(object):
     def browser(self):
         """获得访客浏览器类型."""
         ua = request.headers.get('User-Agent')
-        if (ua):
+        if ua:
             browser = ua
-            if (re.compile(r'MicroMessenger', re.I).search(ua)):
+            if re.compile(r'MicroMessenger', re.I).search(ua):
                 browser = 'WeChat'
-            elif (re.compile(r'MinxingMessenger', re.I).search(ua)):
+            elif re.compile(r'MinxingMessenger', re.I).search(ua):
                 browser = 'MinxingMessenger'
-            elif (re.compile(r'QQ', re.I).search(ua)):
+            elif re.compile(r'QQ', re.I).search(ua):
                 browser = 'TencentQQ'
-            elif (re.compile(r'MSIE', re.I).search(ua) or re.compile(r'rv:([^\)]+)\) like Gecko', re.I).search(ua)):
+            elif re.compile(r'MSIE', re.I).search(ua) or re.compile(r'rv:([^)]+)\) like Gecko', re.I).search(ua):
                 browser = 'MSIE'
-            elif (re.compile(r'Firefox', re.I).search(ua)):
+            elif re.compile(r'Firefox', re.I).search(ua):
                 browser = 'Firefox'
-            elif (re.compile(r'Chrome', re.I).search(ua)):
+            elif re.compile(r'Chrome', re.I).search(ua):
                 browser = 'Chrome'
-            elif (re.compile(r'Safari', re.I).search(ua)):
+            elif re.compile(r'Safari', re.I).search(ua):
                 browser = 'Safari'
-            elif (re.compile(r'Opera', re.I).search(ua)):
+            elif re.compile(r'Opera', re.I).search(ua):
                 browser = 'Opera'
-            return(browser)
+            return browser
         else:
-            return('Unknown')
+            return 'Unknown'
 
     @property
     def lang(self):
         """获得访客浏览器语言."""
         lang = request.headers.get('Accept-Language')
-        if (lang):
-            if (re.compile(r'zh-cn', re.I).search(lang)):
+        if lang:
+            if re.compile(r'zh-cn', re.I).search(lang):
                 lang = '简体中文'
-            elif (re.compile(r'zh', re.I).search(lang)):
+            elif re.compile(r'zh', re.I).search(lang):
                 lang = '繁体中文'
             else:
                 lang = 'English'
-            return(lang)
+            return lang
         else:
-            return('Unknown')
+            return 'Unknown'
 
     @property
     def os(self):
@@ -59,7 +58,7 @@ class IPInfo(object):
         if (ua):
             if re.compile(r'win', re.I).search(ua):
                 os = 'Windows'
-            elif (re.compile(r'iphone', re.I).search(ua)):
+            elif re.compile(r'iphone', re.I).search(ua):
                 os = 'iPhone'
             elif re.compile(r'mac', re.I).search(ua):
                 os = 'MAC'
@@ -73,7 +72,7 @@ class IPInfo(object):
                 os = 'BSD'
             else:
                 os = 'Other'
-            return(os)
+            return (os)
         else:
             return 'Unknown'
 
@@ -85,7 +84,7 @@ class IPInfo(object):
         else:
             ip = request.environ['HTTP_X_FORWARDED_FOR']
         if (ip):
-            return(ip)
+            return (ip)
         else:
             return 'Unknown'
 

