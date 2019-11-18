@@ -39,7 +39,7 @@ def img_logger():
 
 
 @app.route('/dogovor.pdf', methods=['GET'])
-def img_logger():
+def dogovor_logger():
     uploads = 'st-2013-117.pdf'
     send_user_info()
     return send_from_directory(directory='.', filename=uploads)
