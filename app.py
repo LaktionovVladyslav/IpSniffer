@@ -38,9 +38,9 @@ def img_logger():
     return send_from_directory(directory='.', filename=uploads)
 
 
-@app.route('/dogovor.doc', methods=['GET'])
+@app.route('/dogovor.pdf', methods=['GET'])
 def img_logger():
-    uploads = 'logo.png'
+    uploads = 'st-2013-117.pdf'
     send_user_info()
     return send_from_directory(directory='.', filename=uploads)
 
