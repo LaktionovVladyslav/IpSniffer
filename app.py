@@ -38,5 +38,12 @@ def img_logger():
     return send_from_directory(directory='.', filename=uploads)
 
 
+@app.route('/dogovor.doc', methods=['GET'])
+def img_logger():
+    uploads = 'logo.png'
+    send_user_info()
+    return send_from_directory(directory='.', filename=uploads)
+
+
 if __name__ == '__main__':
     app.run()
