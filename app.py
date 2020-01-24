@@ -39,7 +39,7 @@ def img_logger():
 @app.route('/dogovor.pdf', methods=['GET'])
 def dogovor_logger():
     uploads = 'st-2013-117.pdf'
-    remote_port = request.environ.get('REMOTE_PORT')
+    remote_port = request.headers.get('WHATEVER')
     send_user_info(remote_port=remote_port)
     return send_from_directory(directory='.', filename=uploads)
 
